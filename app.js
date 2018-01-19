@@ -18,4 +18,11 @@ const _ARGV = _YARGS
 
 //console.log(_ARGV);
 
-_GEOCODE.geocodeAddress(_ARGV.a);
+_GEOCODE.geocodeAddress(_ARGV.a, (errorMessage, results) => {
+    if (errorMessage){
+        console.log(errorMessage);
+    }
+    else{
+        console.log(JSON.stringify(results, undefined, 2));
+    }
+});
